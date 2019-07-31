@@ -1,0 +1,208 @@
+\section{The Event Object}
+
+Whenever you set up an event handler the first argument passed to your function is the \textbf{event object}.
+
+\begin{minted}{javascript}
+    let input = document.getElementById("input");
+
+    input.addEventListener("keyup", event => {
+        if (event.key === "Escape") {
+            input.value = "";
+        }
+    });
+\end{minted}
+
+The event object has all sorts of useful properties and methods:
+
+\begin{itemize}
+    \item The key that was pressed (\texttt{event.key})
+    \item The coordinates of the mouse or finger(s) (\texttt{event.clientX}, \texttt{event.clientY})
+    \item The time the event occurred
+    \item The type of the event
+\end{itemize}
+
+\pagebreak
+
+
+\section{\texttt{.preventDefault()}}
+
+By default the browser will run the function and then resume its normal behaviour.
+\\
+
+For example, if you registered a \texttt{click} event on a link, the browser would run your code, but then follow the link, which would load a new page. You can prevent this using \texttt{event.preventDefault()}:
+
+\begin{minted}{javascript}
+    let link = document.getElementById("link");
+
+    link.addEventListener("click", event => {
+        event.preventDefault();
+
+        // do something...
+    });
+\end{minted}
+
+This will be necessary for any event that navigates away from the current page, e.g. submitting a form, clicking a link
+
+
+
+\section{Bubbling}
+
+Events fire on an element whether you're listening to them or not.
+\\
+
+Events \textbf{bubble} up the page hierarchy: all parent elements of the element that the event was fired on will also fire the event.
+
+\begin{minted}{html}
+    <div id="container">
+        <ul>
+            <li>
+                <a href="/link">Link</a>
+            </li>
+        </ul>
+    </div>
+\end{minted}
+
+If we clicked on the \texttt{<a>} then it would fire a \texttt{click} even on the \texttt{<a>}, but then it would also fire one on the \texttt{<li>}, then the \texttt{<ul>}, then the \texttt{<div>}, all the way up to the \texttt{document} and then \texttt{window} objects.
+
+\pagebreak
+
+\subsection{\texttt{event.target}}
+
+We can use \texttt{event.target} to find out which element the event originated from.
+
+\begin{minted}{javascript}
+    let container = document.getElementById("container");
+
+    container.addEventListener("click", event => {
+        let clicked = event.target;
+        clicked.classList.add("clicked");
+    });
+\end{minted}
+
+
+\subsection{Event Delegation}
+
+This allows to add an event for multiple items in an efficient manner:
+
+\begin{minted}{html}
+    <ul id="list">
+        <li><a href="/one">One</a></li>
+        <li><a href="/two">Two</a></li>
+        ...
+        <li><a href="/one-thousand">One Thousand</a></li>
+    </ul>
+\end{minted}
+
+We can listen on the parent \texttt{<ul>} rather than setting up an event handler for every list item:
+
+\begin{minted}{javascript}
+    let list = document.getElementById("list");
+
+    list.addEventListener("click", e => {
+        let clicked = e.target;
+
+        // only add class if it's a link
+        if (clicked.tagName === "A") {
+            e.preventDefault();
+            clicked.classList.add("clicked");
+        }
+    });
+\end{minted}
+
+Delegation has the added advantage that it will work for \textit{new} HTML elements that are added after the event listener is registered. That's because we're not listening on the new item itself, just on the parent that contains it.
+
+\pagebreak
+
+\begin{infobox}{\texttt{.matches()}}
+    Sometimes when we're using event delegation our conditional might get quite complicated. If that's the case we can use the \texttt{.matches()} method to check if the element matches a given CSS selector.
+
+    \begin{minted}{html}
+        <ul id="list">
+            <li class="list-item">
+                <a href="/one">One</a>
+            </li>
+            <li class="list-item">
+                <a href="/two">Two</a>
+            </li>
+            ...
+            <li class="list-item current">
+                <a href="/one-thousand">One Thousand</a>
+            </li>
+        </ul>
+    \end{minted}
+
+    \begin{minted}{javascript}
+        let list = document.getElementById("list");
+
+        list.addEventListener("click", e => {
+            let clicked = e.target;
+
+            // only add class if it matches the given CSS selector
+            if (clicked.matches("li.list-item.current a")) {
+                e.preventDefault();
+                clicked.classList.add("clicked");
+            }
+        });
+    \end{minted}
+\end{infobox}
+
+\pagebreak
+
+\subsection{\texttt{event.composedPath()}}
+
+We can also use the \texttt{event.composedPath()} property to see the full route of an event:
+
+\begin{minted}{javascript}
+    let cards = d.getElementById("cards");
+
+    cards.addEventListener("click", e => {
+        // get the path of the bubble event
+        let path = e.composedPath(); // in older browsers: e.path || e.composedPath()
+
+        // go over each item in the event path
+        // check if it has a .matches() method (sometimes it's not there)
+        // if it does then see if the element matches some CSS selector
+        if (path.some(el => el.matches ? el.matches(".card") : false)) {
+            console.log("card clicked");
+        }
+    });
+\end{minted}
+
+
+\section{Removing Event Listeners}
+
+Sometimes it's useful to remove an event listener from an element. In order to do this we need to have stored the event listener function in a variable, otherwise we can't tell the DOM \textit{which} event listener we're trying to remove:\footnote{Although we've not seen an example of this, it's possible to add as many event listeners as you like for the same event. This can be handy to avoid writing functions that try to do too many things.}
+
+\begin{minted}{javascript}
+    let container = document.getElementById("container");
+    let count = 0;
+
+    let clickHandler = () => {
+        count += 1;
+        container.textContent = count;
+
+        if (count > 10) {
+            // if count is clicked more than 10 times
+            // remove the event listener
+            container.removeEventListener("click", clickHandler);
+        }
+    };
+
+
+    // add the event listener using the named function
+    container.addEventListener("click", clickHandler);
+\end{minted}
+
+Event listeners use memory, so it's important to remove them if you don't need them any more. It's very common in JavaScript apps to see memory usage increase over time. This is usually because the code removes elements from the DOM but doesn't remove the event listeners - the DOM won't do this for you, as you may reinsert the element at a later point. Libraries like React, which we'll cover later in the course, do this automatically.
+
+
+
+\section{Additional Resources}
+
+\begin{itemize}[leftmargin=*]
+    \item \href{https://davidwalsh.name/event-delegate}{How JavaScript Event Delegation Works}
+    \item \href{https://developer.mozilla.org/en-US/docs/Web/API/Element/matches}{MDN: \texttt{.matches()}}
+    \item \href{https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener}{MDN: \texttt{.removeEventListener()}}
+    \item \href{https://css-tricks.com/debouncing-throttling-explained-examples/}{Debouncing \& Throttling}
+    \item \href{https://blog.logrocket.com/8-dom-features-you-didnt-know-existed-ec2a0a28fd89/}{8 DOM Features You Didn't Know Existed}
+\end{itemize}

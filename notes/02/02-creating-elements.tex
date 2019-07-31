@@ -1,0 +1,161 @@
+\section{Creating Elements}
+
+You can create elements using \texttt{document.createElement()}:
+
+\begin{minted}{javascript}
+    // create a new <p> element and store it in a variable
+    let p = document.createElement("p");
+
+    // set the text inside the <p> to "A paragraph"
+    p.textContent = "A paragraph";
+\end{minted}
+
+This creates an \texttt{HTMLElement} object instance, just as if you'd got it from the DOM. However, it only exists in JavaScript land until you add it to the DOM.
+\\
+
+You can add an element to the DOM using \texttt{.append()}:
+
+\begin{minted}{javascript}
+    // select an item from the DOM
+    let container = document.getElementById("container");
+    // append the new <p> to the container element
+    // this adds it to the DOM
+    container.append(p);
+\end{minted}
+
+Notice that we set the \texttt{.textContent} property of the \texttt{<p>} \textit{before} we add it to the DOM. If we added it to the DOM and then changed the property the browser would need to re-render the page twice. If we make the change before we add it to the DOM, the browser only re-renders once. Re-rendering is very costly in terms of processing power, so it's best to avoid doing it unnecessarily.
+\\
+
+There are four useful methods for adding elements to the DOM:\footnote{There's also \texttt{.appendChild()}, \texttt{.insertBefore()}, and the bizarre \texttt{.insertAdjacentElement()}, but the newer methods listed above are much nicer to use}
+
+\begin{itemize}
+    \item \texttt{el.prepend(otherEl)}: adds \texttt{otherEl} as the first element of \texttt{el}
+    \item \texttt{el.append(otherEl)}: adds \texttt{otherEl} as the last element of \texttt{el}
+    \item \texttt{el.before(otherEl)}: adds \texttt{otherEl} before \texttt{el}
+    \item \texttt{el.after(otherEl)}: adds \texttt{otherEl} after \texttt{el}
+\end{itemize}
+
+
+\begin{infobox}{Polyfills}
+    The methods listed above are part of the ``DOM Level 4'' spec, which is all rather new. Until quite recently doing the equivalent of these methods took rather more code (and bizarre code at that). Because they're new, they're not supported in older browsers, which might seem like a bit of a non-starter.
+    \\
+
+    Luckily, it's possible to ``monkey patch'' JavaScript: adding functionality to JavaScript using JavaScript itself. Generally, this is not to be encouraged, as it means your version of JavaScript is different from the standard, which could be confusing for other consumers of your code. But it can be safely used to make older JavaScript engines support new functionality. We call such code a \textbf{polyfill}.\footnotemark
+    \\
+
+    The \href{https://github.com/WebReflection/dom4}{DOM4} Polyfill can be added to the \texttt{<head>} of a page to make sure that the above methods are all present.
+\end{infobox}
+
+\footnotetext{Which are a type of \textbf{shim}: code that intercepts other code}
+
+\pagebreak
+
+\section{Inserting/Moving Elements}
+
+Sometimes we want to move the position of elements on the page.
+\\
+
+We can use \texttt{.append()} and friends to do this:
+
+\begin{minted}{javascript}
+    // create a new element
+    let p = document.createElement("p");
+    p.textContent = "Hello, world";
+
+    // select an existing element
+    let container = document.getElementById("container");
+
+    // puts the paragraph inside the container as the last element
+    // moves it rather than copying it
+    container.append(p);
+\end{minted}
+
+Remember, the DOM models each element as an object, and objects are stored by reference. So if we try and \texttt{.append()} an object already in the DOM, it moves it rather than copying it. This is also true of \texttt{.prepend()}, \texttt{.before()}, and \texttt{.after()}.
+
+
+\section{Removing Elements}
+
+You can remove elements from a page use the \texttt{.remove()} method:
+
+\begin{minted}{javascript}
+    // find the element with id mobile-nav
+    let mobileNav = document.getElementById("mobile-nav");
+
+    // remove the element from the page
+    mobileNav.remove();
+
+    // we can reinsert the item later
+    document.body.prepend(mobileNav);
+\end{minted}
+
+\pagebreak
+
+\section{Document Fragments}
+
+Every time you add an element to the DOM the browser will re-render the webpage. This can be quite a slow process.
+\\
+
+Rather than appending items to the DOM one by one, we can use a \textbf{Document Fragment} to prepare them all, and then add them in one go:
+
+\begin{minted}{javascript}
+    // the list is already on the page, so if we append
+    // to it we will cause a redraw
+    let list = document.getElementById("list");
+    let animals = ["wombat", "kangaroo", "wombat", "platypus", "koala"];
+    let fragment = document.createDocumentFragment();
+
+    animals.forEach(animal => {
+        let el = document.createElement("li");
+        el.textContent = animal;
+
+        // append to the document fragment
+        // this isn't on the page, so won't cause a redraw
+        fragment.append(el);
+    });
+
+    // append the fragment once
+    // this appends all the items in one go
+    // so we only get one redraw instead of five
+    list.append(fragment);
+\end{minted}
+
+The document fragment creates a sort of phantom element, that you can add items to as if it were real, but when you add it to the DOM it's as if it never existed.
+\\
+
+You only need to use a document fragment if the item you want to add multiple items to is already on the page. If the parent element hasn't yet been added to the page, then adding items to it won't cause a re-render, so document fragments aren't necessary.
+
+\pagebreak
+
+\begin{infobox}{jQuery}
+    jQuery is JavaScript library that makes working with the DOM much nicer - it can also support browsers going back to IE8.
+
+    \begin{minted}{javascript}
+        // selecting
+        // native DOM
+        let items = Array.from(document.querySelectorAll(".menu_item"));
+        // jQuery
+        let items = $(".menu_item");
+
+        // setting text and adding a class in native DOM
+        body.textContent = "Blah";
+        body.classList.add("foo");
+
+        // setting text and adding a class in jQuery
+        body.text("Blah").addClass("foo");
+    \end{minted}
+
+    Over the years browsers have slowly adopted many of the jQuery methods and concepts like \texttt{.remove()}, \texttt{.before()} and \texttt{document.querySelector()}.
+    \\
+
+    If you're working on a site that already uses jQuery you'd be mad not to use it. However, jQuery is an additional download, so you shouldn't add it to sites unless you're using it a lot.
+\end{infobox}
+
+
+
+\section{Additional Resources}
+
+\begin{itemize}[leftmargin=*]
+    \item \href{https://developer.mozilla.org/en-US/docs/Web/API/Document/createDocumentFragment}{MDN: Document Fragments}
+    \item \href{https://css-tricks.com/now-ever-might-not-need-jquery/}{You Might Not Need jQuery}
+    \item \href{https://www.elated.com/articles/jquery-getting-started/}{jQuery: Getting Started}
+\end{itemize}

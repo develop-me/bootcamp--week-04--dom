@@ -1,0 +1,92 @@
+\section{Selecting Multiple Elements}
+
+Sometimes you'll want to work with multiple elements on a page. For example, you might want all the elements that are a particular type or have a particular class.
+\\
+
+These methods return an \textbf{HTMLCollection}:
+
+\begin{minted}{js}
+    let menuItems = document.getElementsByClassName("menu__item");
+    let divs = document.getElementsByTagName("div");
+\end{minted}
+
+These methods return a \textbf{NodeList}:
+
+\begin{minted}{javascript}
+    // all items with menu__item class
+    document.querySelectorAll(".menu__item");
+    // all the <li> elements
+    document.querySelectorAll("li");
+    // all the <a> elements inside <li> elements
+    document.querySelectorAll("li a");
+    // any elements with a disabled attribute
+    document.querySelectorAll("[disabled]");
+    // the first item
+    document.querySelectorAll("p:first-child");
+    // any elements with the list or table class
+    document.querySelectorAll(".list, .table");
+\end{minted}
+
+
+\section{NodeLists and HTMLCollections}
+
+\texttt{NodeList}s and \texttt{HTMLCollection}s are \textbf{array-like objects}, meaning that they sort of act like arrays, but not really.
+\\
+
+Generally, we just want to turn them into an actual array so that they behave how we'd expect. We can do this using \texttt{Array.from()}:
+
+\begin{minted}{js}
+    let items = Array.from(document.getElementsByClassName("menu__item"));
+\end{minted}
+
+Once we've turned them into an array we can use the standard array methods like \texttt{forEach()}, \texttt{filter()}, \texttt{map()}, and \texttt{reduce()}.
+\\
+
+If you forget to convert them into an array then - as well as missing the array methods that you're used to - there can be some performance issues.
+
+
+\section{Using \texttt{forEach()}}
+
+Once we've converted the selection to an array we can use \texttt{forEach()} to work with each item in turn:
+
+\begin{minted}{js}
+    let items = Array.from(document.getElementsByClassName("menu__item"));
+
+    items.forEach(el => el.classList.add("spoon"));
+\end{minted}
+
+We use \texttt{forEach()} in this case as many of the DOM methods don't return useful values.
+
+\pagebreak
+
+
+\begin{infobox}{IDs, Classes, and Prefixes}
+    When writing HTML to be used with JavaScript, how do you know when to use an \texttt{id} or a \texttt{class}?
+    \\
+
+    In CSS you should never use \texttt{id} selectors, as they make it hard to override rules using cascading. However, in JavaScript it is \textit{much} more efficient to select elements using an \texttt{id} than a \texttt{class}.
+    \\
+
+    \textit{If an element can only ever appear in the HTML once, then use an} \texttt{id}. \textit{Otherwise, use a} \texttt{class}
+    \\
+
+    It's also a good idea to use a special \texttt{js\_\_} prefix on any classes you add for use with JavaScript. Although it can look a little verbose, this means that someone editing the styling for an element won't accidentally break your JavaScript.
+
+    \begin{minted}{html}
+        <!-- .list-item is for styling, js__selector is for JavaScript -->
+        <li class="list-item js__selector">Blah blah</li>
+    \end{minted}
+
+    You can also add a \texttt{js\_\_} prefix to any \texttt{id}s - but as \texttt{id}s shouldn't be used for styling, this is not strictly necessary.
+\end{infobox}
+
+
+
+\section{Additional Resources}
+
+\begin{itemize}[leftmargin=*]
+    \item \href{http://alebelcor.github.io/2011/htmlcollections-nodelists/}{HTMLCollections and NodeLists}
+    \item \href{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from}{MDN: \texttt{Array.from()}}
+    \item \href{https://developer.mozilla.org/en-US/docs/Web/API/NodeList}{MDN: \texttt{NodeList}}
+    \item \href{https://developer.mozilla.org/en-US/docs/Web/API/HTMLCollection}{MDN: \texttt{HTMLCollection}}
+\end{itemize}

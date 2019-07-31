@@ -1,0 +1,82 @@
+\section{Relationships}
+
+The DOM is a \textbf{tree} structure, meaning that the elements within it have the following relationships:
+
+\begin{itemize}
+    \item \textbf{Parent}: the containing element
+    \item \textbf{Child}: the contained element
+    \item \textbf{Sibling}: other child elements with the \textit{same} parent
+\end{itemize}
+
+\begin{minted}{html}
+    <html>
+        <body>
+            <h1>Lists!</h1>
+            <p>A list</p>
+            <ul>
+                <li>
+                    <a href="/one">First Thing</a>
+                </li>
+                <li>
+                    <a href="/two">Second Thing</a>
+                </li>
+                <li>
+                    <a href="/three">Third Thing</a>
+                </li>
+            </ul>
+        </body>
+    </html>
+\end{minted}
+
+In the above example the \texttt{<body>} is the parent of the \texttt{<h1>}, the \texttt{<p>}, and the \texttt{<ul>}. The \texttt{<ul>} is the parent of the three \texttt{<li>}s. The \texttt{<li>}s are all children of the \texttt{<ul>} and are siblings with each other. Each \texttt{<a>} is the child of an \texttt{<li>}, but have no children\footnote{This is not technically true as the \texttt{<a>}'s each contain text, which in the DOM is represented as a \texttt{TextNode}, but it is rare to use these in modern JavaScript} or siblings themselves.
+
+
+
+\section{Traversal}
+
+With the DOM you can get elements using their relationships to other elements:
+
+\begin{minted}{javascript}
+    let body = document.body; // the <body>
+
+    let header = body.firstElementChild; // the first child of body, <h1>
+    let bodyAgain = header.parentElement; // the <body>
+
+    let p = header.nextElementSibling; // the <p>
+    let ul = p.nextElementSibling; // the <ul>
+    let headerAgain = p.previousElementSibling; // the <h1>
+\end{minted}
+
+You can also get all the children:
+
+\begin{minted}{javascript}
+    let listItems = ul.children;
+\end{minted}
+
+This returns an \texttt{HTMLCollection}, so you will want to convert it to an array before you do anything with it.
+
+
+
+\section{Selecting Children}
+
+You can use many of the selection methods on any element:
+
+\begin{minted}{js}
+    container.getElementsByClassName("menu__item");
+    container.getElementsByTagName("li");
+    container.querySelector("li a");
+    container.querySelectorAll("li a");
+\end{minted}
+
+It can be much more efficient to select a container element (particularly if you use \texttt{getElementById}) and then use these methods to select child elements.
+\\
+
+It's also preferable to use the \texttt{getElement...} methods over the \texttt{querySelector...} methods where you can as they are generally much faster.
+
+
+
+\section{Additional Resources}
+
+\begin{itemize}[leftmargin=*]
+    \item \href{https://www.digitalocean.com/community/tutorials/how-to-traverse-the-dom}{How to traverse the DOM}
+\end{itemize}

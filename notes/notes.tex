@@ -1,0 +1,66 @@
+% setup the document
+\documentclass[b5paper,openany]{book}
+
+% setup variables ------------------------------
+
+% your name
+\newcommand\instructor{Mark Wales}
+
+% the week number
+\newcommand\weekno{4}
+
+% week main title
+\newcommand\maintitle{JavaScript in the Browser}
+
+% week subtitle
+\newcommand\subtitle{with the DOM}
+
+% link to notes - relative to github.com/develop-me/
+\newcommand\github{book-marks/week-04--dom/blob/master/notes/}
+
+% setup functions, styling, etc.
+\input{../../templates/template.tex}
+
+% the structure of the document
+\begin{document}
+
+% render the title page (uses variables above)
+\tp
+
+\quotepage{A learning experience is one of those things that says, ``You know that thing you just did? Don't do that.''}{Douglas Adams}
+
+\tableofcontents
+
+\input{../../templates/preface.tex}
+
+\chapter{JavaScript in the Browser}
+\input{01/01-js-in-browser.tex}
+
+\chapter{The DOM}
+\input{01/02-dom.tex}
+
+\chapter{Working with Collections}
+\input{01/03-collections.tex}
+
+\chapter{Traversing the DOM}
+\input{01/04-traversing.tex}
+
+\chapter{Manipulating the DOM}
+\input{02/01-manipulating-dom.tex}
+
+\chapter{Creating, Moving \& Removing Elements}
+\input{02/02-creating-elements.tex}
+
+\chapter{Events}
+\input{03/01-events.tex}
+
+\chapter{Advanced Event Handling}
+\input{04/01-advanced-events.tex}
+
+\nchapter{Glossary}
+\input{glossary.tex}
+
+
+\input{../../templates/colophon.tex}
+
+\end{document}

@@ -1,0 +1,131 @@
+We need a way to use JavaScript to communicate with HTML elements on a page. The browser provides an interface known as the DOM.
+\\
+
+The DOM (\textbf{Document Object Model}) is how JavaScript represents the HTML on a web page. It turns the elements from the HTML into a JavaScript object that represents the hierarchy of elements. By reading and setting these properties we can make changes to elements on the page.
+\\
+
+In all browsers there is a global object called \texttt{document} that allows us to interact with the DOM.
+
+\begin{minted}{js}
+    console.log(document);
+\end{minted}
+
+The \texttt{document} object has three important properties that represent the main parts of a page:
+
+\begin{minted}{js}
+    document.documentElement; // the <html> element
+    document.head; // the head element
+    document.body; // the body element
+\end{minted}
+
+These properties represent \href{https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement}{\textbf{HTMLElement} objects}, which share various properties and methods that we'll be learning about tomorrow.
+
+\pagebreak
+
+\section{Getting Individual Elements}
+
+The \texttt{document} object also has methods that allow us to get HTML elements to work with.
+\\
+
+You can use \texttt{document.getElementById()} to get an element using its \texttt{id}:
+
+\begin{minted}{js}
+    // get the container element on a page
+    let container = document.getElementById("container");
+\end{minted}
+
+This returns an \texttt{HTMLElement} object representing whichever element in the document has the given ID.\footnote{If no elements match then you'll get \texttt{null} back and none of the element methods will work}
+\\
+
+This is the most efficient way to get an element from the DOM - but \texttt{id}s need to be unique, so you can't always use this.
+\\
+
+
+You can also use almost any CSS selector to get an element:
+
+\begin{minted}{html}
+    <html>
+      <body>
+        <section id="container">
+          <ul>
+            <li class="menu__item"><a href="/about">About</a></li>
+            <li class="menu__item"><a href="/contact">Contact</a></li>
+          </ul>
+        </section>
+      </body>
+    </html>
+\end{minted}
+
+\begin{minted}{javascript}
+    // returns first matching element
+    let list = document.querySelector("ul") // the ul element
+
+    // the first item with menu__item class
+    let firstMenuItem = document.querySelector(".menu__item")
+\end{minted}
+
+This method also returns an \texttt{HTMLElement} object.
+
+
+\section{Storing Elements}
+
+Once you've got an element from the DOM, it's a good idea to store it in a variable so that you can do things with it later:
+
+\begin{minted}{javascript}
+    // a variable holding the #container element
+    let container = document.getElementById("container");
+    let body = document.body; // a variable holding the <body> element
+
+    // later on...
+    // do some things with container
+    container.classList.add("current");
+\end{minted}
+
+If you only use an element once in your code then you don't necessarily need to store it in a variable, but it's good to get used to doing it.
+
+
+
+\begin{infobox}{IIFEs with Arguments}
+    You've probably noticed that we're using \texttt{document} a lot. We can save ourselves a little bit of typing by passing in an argument to our IIFE:
+
+    \begin{minted}{javascript}
+        // call whatever the first argument is d
+        (d => {
+            // now inside our IIFE we can use d instead of document
+            d.getElementById("foo");
+        })(document); // pass the document object in as the first argument
+    \end{minted}
+
+    You don't have to call the parameter \texttt{d}, you could use \texttt{doc} or anything else, but \texttt{d} is nice and short and fairly obvious. Just don't use a variable named \texttt{d} for anything else inside your IIFE.
+\end{infobox}
+
+
+\pagebreak
+
+\section{Adding and Removing Classes}
+
+Once we've got our element, we can start to do things with it. One of the most useful things you can do is add and remove classes in order to change how it appears on screen:
+
+\begin{minted}{javascript}
+    let container = document.getElementById("container");
+
+    // Add the current class to the #container
+    container.classList.add("current");
+
+    // Remove the hidden class from the #container
+    container.classList.remove("hidden");
+\end{minted}
+
+The \texttt{classList} methods don't return anything when you call them. This means you can't chain them or do anything useful with the value you get back (it will always be \texttt{undefined}).
+
+
+
+\section{Additional Resources}
+
+\begin{itemize}[leftmargin=*]
+    \item \href{https://eloquentjavascript.net/13_dom.html}{Eloquent JavaScript: The DOM}
+    \item \href{https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement}{MDN: \texttt{HTMLElement}}
+    \item \href{https://developer.mozilla.org/en-US/docs/Web/API/Element/classList}{MDN: \texttt{classList}}
+    \item \href{https://www.sitepoint.com/css-selectors/}{CSS Selectors}
+    \item \href{http://gregfranko.com/blog/i-love-my-iife/}{I Love My IIFE}
+\end{itemize}

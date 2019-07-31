@@ -1,0 +1,109 @@
+\section{Event Driven Programming}
+
+Almost everything you do in JavaScript will be a response to an event.
+\\
+
+Some examples:
+
+\begin{itemize}
+\item the page loading
+\item user clicking an element
+\item user submitting a form
+\item user moving the mouse
+\item resizing the window
+\end{itemize}
+
+Events allow us to respond to a user's actions.
+\\
+
+We use the \texttt{addEventListener} method to tell the browser what we want to happen when the event is \textbf{triggered}.
+\\
+
+\pagebreak
+
+We pass \texttt{addEventListener} a function, which gets called by the browser each time the registered event occurs. We call such a function an \textbf{event handler}:
+
+\begin{minted}{javascript}
+    // this runs straight away
+    console.log("page loaded");
+
+    let container = document.getElementById("container");
+
+    // this runs when the element is clicked
+    container.addEventListener("click", () => console.log("clicked"));
+
+    // this runs when the mouse moves over the element
+    container.addEventListener("mousemove", () => console.log("mouse moving"));
+\end{minted}
+
+There are all sorts of events:
+
+\begin{itemize}
+    \item \texttt{keydown}: when a key is pressed down
+    \item \texttt{keyup}: when the key is released
+    \item \texttt{click}: when the element is clicked
+    \item \texttt{mousedown}: when the mouse is pressed down
+    \item \texttt{mouseup}: when it comes back up again
+    \item \texttt{focus}/\texttt{blur}: when a form field gets/loses focus
+    \item \texttt{change}/\texttt{input}: fires when a form input changes
+    \item \texttt{submit}: fired on submitting a form
+\end{itemize}
+
+A full list is available on the \href{https://developer.mozilla.org/en-US/docs/Web/Events}{MDN site}
+\\
+
+Some events will only apply to specific types of elements (e.g. you can only submit a form)
+
+\pagebreak
+
+\section{Window Events}
+
+Some events need to be on the \texttt{window}: most usefully, resizing and scrolling the page.
+
+\begin{minted}{javascript}
+    window.addEventListener("scroll", () => {
+        console.log("scrolling");
+    });
+
+    window.addEventListener("resize", () => {
+        console.log("resizing");
+    });
+\end{minted}
+
+
+
+\section{State}
+
+Event handlers are \textbf{short-lived}: they are triggered by an event, run the code inside, and then they're done. Any variables that are declared \textit{inside} an event handler will only exist temporarily.
+\\
+
+Your main application code is (comparatively) \textbf{long-lived}: any variables will exist as long as the page isn't refreshed.
+\\
+
+This means if we want to keep track of any values \textit{between} events, we need to make sure the variables live \textit{outside} our event handlers. This is what we refer to as \textbf{state}: variables we use to keep track of changes in our app.
+
+\begin{minted}{javascript}
+    // long-lived variables
+    let increment = document.getElementById("increment");
+
+    // the state
+    // keep track of a value that changes over time
+    let counter = 0;
+
+    // event handlers need to refer to variables outside their local scope
+    // otherwise they can't keep track of anything
+    increment.addEventListener("click", () => counter += 1);
+\end{minted}
+
+Remember, \textit{you should avoid querying the DOM if you can}. Keep your state in JavaScript and use variables to keep track of changes.
+
+
+
+\section{Additional Resources}
+
+\begin{itemize}[leftmargin=*]
+    \item \href{https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener}{MDN: \texttt{addEventListener}}
+    \item \href{https://goo.gl/cn9pWm}{State}
+    \item \href{https://eloquentjavascript.net/14_event.html}{Eloquent JavaScript: Events}
+    \item \href{https://matthewrayfield.com/goodies/popup-trombone/}{Pop-Up Trombone}: the best use of the \texttt{resize} event ever
+\end{itemize}

@@ -1,0 +1,153 @@
+So far we've been doing all of our JavaScript on the command-line using Node. This has allowed us to focus on learning the fundamentals of programming without any distractions.
+\\
+
+When moving into the browser, the key thing to remember is that JavaScript in the browser is \textit{still} JavaScript: we'll be learning about ways to manipulate HTML elements and deal with user interaction, but we'll be doing it using functions and variables and strings and objects and conditionals and loops and all the other stuff we learnt about last week. It's a new environment, but don't forget the skills you've learnt so far.
+\\
+
+So let's take everything we know and make our HTML dance! Or at the very least turn the border of a \texttt{<div>} red. Truly we live in interesting times.
+
+\pagebreak
+
+
+\section{\texttt{<script>}}
+
+To use JavaScript in the browser we need to use the \texttt{<script>} tag.
+
+\subsection{External Scripts}
+
+It's best to store our JavaScript in separate \texttt{.js} files and then link to them using a \texttt{src} attribute. This way you can use the same JavaScript file in multiple HTML files.
+\\
+
+The script tag should go in the \texttt{<head>} section of your HTML file and should have a \texttt{defer} attribute. If you forget the \texttt{defer} attribute things will not work as you expect.
+
+\begin{minted}{html}
+    <script defer src="js/app.js"></script>
+\end{minted}
+
+The \texttt{src} attribute can be a relative, absolute, or remote link:
+
+\begin{minted}{html}
+    <!-- relative -->
+    <script defer src="js/app.js"></script>
+
+    <!-- absolute -->
+    <script defer src="/resources/js/app.js"></script>
+
+    <!-- remote -->
+    <script defer src="https://cdn.wombat.com/app.js"></script>
+\end{minted}
+
+When you include a \texttt{.js} file for the first time it can be a good idea to just shove \texttt{console.log("Hello!")} in it, then open up the Developer Tools console and check that it's definitely working.
+
+\pagebreak
+
+\begin{infobox}{The Wandering \texttt{<script>}}
+    \texttt{<script>} is a bit of a nomad. When JS was first added to the browser we put \texttt{<script>} tags in the \texttt{<head>} (without a \texttt{defer} attribute). When JS files started to get quite big in the early naughties this started to cause issues, as the browser wouldn't render anything until the script had fully downloaded, so pages seemed unresponsive.
+    \\
+
+    So \texttt{<script>} began its migration to the bottom of the \texttt{<body>} and that's where it lived for much of the last 15 years. It was never meant to live inside the body of HTML (that's where the stuff a user sees lives), but if you put it as the last thing on the page everything else renders before the JS starts loading, so the page feels more responsive.
+    \\
+
+    Then \texttt{defer} came along and \texttt{<script>} started to migrate back to the \texttt{<head>}. The \texttt{defer} attribute just tells the browser to download the JS in the background, but not run it \textit{until} the rest of the page has finished loading and rendering. So it lets us keep \texttt{<script>} in the \texttt{<head>} (where it belongs), without the associated performance issues.
+    \\
+
+    This is an ongoing migration, so it's not uncommon to still see the \texttt{<script>} tag at the bottom of the \texttt{<body>}. If you find a \texttt{<script>} tag still there, it's probably best to leave it where it is so as not to startle it.
+\end{infobox}
+
+\subsection{Inline Scripts}
+
+It can sometimes be useful to run tiny bits of code to check things are working without creating a separate \texttt{.js} file.
+
+\begin{minted}{html}
+    <script>
+        let hello = "Hello, World";
+        console.log(hello);
+    </script>
+\end{minted}
+
+However, it's better to use external script files if you can.
+
+\hr
+
+\textbf{Warning:} You can't use a \texttt{src} tag and inline JS in the same \texttt{<script>} tag - only one of them will run.
+
+
+
+\section{JavaScript Lifecycle}
+
+When a browser loads a web page it will load the raw HTML from the server and then work its way through each line of code in order\footnote{This is a bit of a simplification and not true if the \texttt{defer} and \texttt{async} attributes are used on a \texttt{<script>} tag}. So if you have multiple \texttt{<script>} tags on your page they will run in the order that they appear in the HTML.
+\\
+
+The JavaScript and any variables that you create using it will only exist until you refresh the page: at that point everything starts again from scratch. \textbf{Refreshing the page restarts your JavaScript from scratch}
+
+
+\section{IIFEs}
+
+You can include as many JavaScript files as you like on a webpage, but you might not have written all of them or be aware of the variables that they've set up. So we need a way to make sure that the variables we declare don't clash with variables that may already exist.
+
+\begin{minted}{javascript}
+    // perfectly innocent bit of code that won't work
+    // browsers already have a top variable defined in global scope
+    let top = 100;
+    console.log(top);
+\end{minted}
+
+We can do this by writing a function - which creates new scope - and then call it immediately:
+
+\begin{minted}{javascript}
+    let start = () => {
+        // no problems as top is scoped to the start function
+        let top = 100;
+        console.log(top);
+    };
+
+    start();
+\end{minted}
+
+However, this still adds a variable called \texttt{start} to global scope, which could still cause issues.
+
+\pagebreak
+
+We can tidy it up using an \textbf{Immediately Invoked Function Expression}:
+
+\begin{minted}{javascript}
+    // create a function
+    (() => {
+        // your code here
+        // any variables will be local
+    })(); // and call it immediately
+\end{minted}
+
+We write an \textbf{anonymous function}, wrap it in brackets, and then call it immediately. Because we don't assign the function to a variable we've not added anything to global scope.
+\\
+
+It's good practice to wrap all of your code in a single IIFE to avoid variable naming issues.\footnote{You don't need to do this with ES6 modules (which we'll use later in the course) as they are self-contained by default.}
+
+
+
+\section{Developer Tools}
+
+\textbf{Always have the Developer Tools Console open when you're working with JavaScript in the browser.} (Mac: \texttt{Cmd}+\texttt{Alt}+\texttt{j}/ Windows: \texttt{Ctrl}+\texttt{Shift}+\texttt{j})
+\\
+
+You can use the JavaScript console to experiment with different bits of code if you get stuck.
+
+\subsection{Errors}
+
+If there is a single error in your code nothing will work, so make sure you immediately fix any errors that show up in the console.
+
+
+\pagebreak
+
+\section{Additional Resources}
+
+\begin{itemize}[leftmargin=*]
+    \item \href{https://eloquentjavascript.net/12_browser.html}{Eloquent JavaScript: JavaScript and the Browser}
+    \item \href{https://addyosmani.com/blog/script-priorities/}{JavaScript Loading Priorities}
+    \item \href{https://developer.mozilla.org/en-US/docs/Glossary/IIFE}{MDN: IIFEs}
+    \item \href{http://benalman.com/news/2010/11/immediately-invoked-function-expression/}{IIFEs in Detail}
+    \item \href{https://www.html5rocks.com/en/tutorials/speed/script-loading/}{Deep Dive into the Murky Depths of Script Loading}
+    \item \href{https://developers.google.com/web/tools/chrome-devtools/console/}{Using the Console}
+    \item \href{https://medium.com/@mattburgess/beyond-console-log-2400fdf4a9d8}{Beyond \texttt{console.log()}}
+    \item \href{https://blog.bitsrc.io/debugging-javascript-like-a-pro-a2e0f6c53c2e}{Debugging JavaScript Like a Pro}
+\end{itemize}
