@@ -25,7 +25,7 @@
         button.textContent = key;
         // add the button to the document
         functions.append(button);
-    })
+    });
 
     // when a function is clicked
     functions.addEventListener("click", e => {

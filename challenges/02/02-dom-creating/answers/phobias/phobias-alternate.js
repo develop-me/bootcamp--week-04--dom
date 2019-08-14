@@ -58,7 +58,7 @@
             li.textContent = phobia;
             // append to the phobias list
             ul.append(li);
-        })
+        });
 
         // append the phobias list to the letter's list
         li.append(ul);

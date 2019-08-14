@@ -1,20 +1,20 @@
 (d => {
-    // object literal to store cached selectors
+    // Map to store cached selectors
     // use the selector string as the key and the element as the value
-    let selectorCache = {};
+    let selectorCache = Map();
 
     // cache function
     let cache = selector => {
         // if the selector doesn't exist in the cache
         // go and get it from the DOM and add it to the cache
-        if (!selectorCache.hasOwnProperty(selector)) {
+        if (!selectorCache.has(selector)) {
             // use the selector as the key
             // and the element as the value
-            selectorCache[selector] = d.querySelector(selector);
+            selectorCache.set(selector, d.querySelector(selector));
         }
 
         // return the cached version
-        return selectorCache[selector];
+        return selectorCache.get(selector);
     };
 
     // as before, but using cache to get the selector
@@ -26,7 +26,7 @@
         }
 
         return el;
-    }
+    };
 
     // as before, but using cache to get the selector
     let removeClassFrom = (className, selector) => {
@@ -37,7 +37,7 @@
         }
 
         return el;
-    }
+    };
 
     // take an array of selectors
     // map over them with cache
@@ -55,7 +55,7 @@
         });
 
         return els;
-    }
+    };
 
     // as before, but using getElements to get the selector
     let removeClassesFrom = (classes, selectors) => {
@@ -68,5 +68,5 @@
         });
 
         return els;
-    }
+    };
 })(document);

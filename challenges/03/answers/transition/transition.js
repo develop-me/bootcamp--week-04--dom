@@ -3,7 +3,7 @@
     // have to subtract the window height as the pageYOffset
     // will never go to the bottom of the page as it doesn't scroll
     // beyond the end of the page
-    let height = document.body.clientHeight - window.innerHeight;
+    let height = d.body.clientHeight - window.innerHeight;
 
     // create a named set function
     let set = () => {
@@ -14,7 +14,7 @@
         // will give a value between 0 and 360
         let hue = Math.round((current / height) * 360);
         // set the body background colour
-        document.body.style.backgroundColor = "hsl(" + hue + ",50%,50%)"
+        d.body.style.backgroundColor = "hsl(" + hue + ",50%,50%)";
     };
 
     // on scroll call the set function
@@ -23,4 +23,4 @@
     // call the set function when the page loads
     // just in case it loads half way down
     set();
-})(document)
+})(document);

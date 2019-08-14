@@ -22,17 +22,13 @@
         }
     });
 
-
-
     /*
      * The code below does the silliness
      * You shouldn't try and write this
      * Think of something else!
      */
 
-
     /*===================================================================*/
-
 
     /*
      * Seriously, don't look at this

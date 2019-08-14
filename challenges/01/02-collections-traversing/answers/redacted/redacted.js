@@ -5,7 +5,7 @@
 
     // go over each paragraph
     // forEach passes in each paragrah element and the current index
-    paragraphs.forEach((p, i) => {
+    paragraphs.forEach(p => {
         // get the paragraph text content
         // search it for the phrase
         // if it doesn't return -1 it's found it

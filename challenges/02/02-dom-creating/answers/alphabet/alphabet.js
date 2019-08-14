@@ -5,7 +5,7 @@
     // the letter A has the character code 65 in ASCII
     // there are 26 letters in the alphabet
     // so go from 65 until 65 + 26
-    for (let i = 65; i < (65 + 26); i +=1) {
+    for (let i = 65; i < (65 + 26); i += 1) {
         // create a new list item for each letter
         let li = d.createElement("li");
         // set the text content by getting the letter using the character code

@@ -12,7 +12,7 @@
 
         // return the element
         return el;
-    }
+    };
 
     // accept the class and selector
     let removeClassFrom = (className, selector) => {
@@ -27,13 +27,12 @@
 
         // return the element
         return el;
-    }
+    };
 
     // a function to get a list of selectors
     // map over the array of selectors to get each one from the DOM
     // filter out any that aren't valid
-    let getElements = selectors => selectors.map(selector => d.querySelector(selector))
-                                            .filter(el => el !== null);
+    let getElements = selectors => selectors.map(selector => d.querySelector(selector)).filter(el => el !== null);
 
     // accept an array of classes and an array of selectors
     let addClassesTo = (classes, selectors) => {
@@ -48,7 +47,7 @@
 
         // return the list of elements
         return els;
-    }
+    };
 
     // accept an array of classes and an array of selectors
     let removeClassesFrom = (classes, selectors) => {
@@ -63,5 +62,5 @@
 
         // return the list of elements
         return els;
-    }
+    };
 })(document);

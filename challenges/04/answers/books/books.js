@@ -25,5 +25,5 @@
         display.classList.remove("hidden");
         // update the text of the display element
         display.textContent = `Author: ${li.dataset.author}, Price: £${(+li.dataset.price).toFixed(2)}`;
-    })
+    });
 })(document);

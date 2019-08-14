@@ -5,7 +5,7 @@
 
     "parserOptions": {
         "ecmaVersion": 6,
-        "sourceType": "module"
+        "sourceType": "script"
     },
 
     "env": {
@@ -104,7 +104,7 @@
         "no-unused-vars": 2,
         "no-use-before-define": 2,
 
-        "indent": [1, 2, {"SwitchCase": 1}],
+        "indent": [1, 4, {"SwitchCase": 1}],
         "brace-style": 1,
         "camelcase": 1,
         "comma-spacing": [1, {"before": false, "after": true}],

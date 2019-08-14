@@ -6,7 +6,7 @@
 
     button.addEventListener("click", () => {
         let val = +input.value;
-        total = total + val;
+        total += val;
         output.textContent = total;
     });
 })(document);

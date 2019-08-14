@@ -27,12 +27,12 @@
         // update the counter
         counter += 1;
         set();
-    })
+    });
 
     // when the reset button is clicked
     reset.addEventListener("click", () => {
         // set the counter back to 1
         counter = 1;
         set();
-    })
+    });
 })(document);

@@ -12,7 +12,7 @@
         // use modulus to work out the current column
         let col = (i % columns) + 1;
         // use division and rounding to work out the current row
-        let row = Math.floor(i / columns) + 1
+        let row = Math.floor(i / columns) + 1;
         // set both classes
         el.classList.add(`col-${col}`, `row-${row}`);
     });

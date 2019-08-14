@@ -11,7 +11,7 @@
     let getByClass = className => {
         // get all the elements on the page
         // then filter to keep the ones with a matching class
-        return walkTheDOM(document.body).filter(el => {
+        return walkTheDOM(d.body).filter(el => {
             return el.classList.contains(className);
         });
     };

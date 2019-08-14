@@ -22,8 +22,7 @@
 
     // get the children of the first list and turn into array
     // loop over each item and add the class to each one
-    Array.from(firstList.children)
-         .forEach(el => el.classList.add("list-group-item"));
+    Array.from(firstList.children).forEach(el => el.classList.add("list-group-item"));
 
     // again, we can use array syntax with getElementsByClassName
     // don't need to store in a variable as we don't do anything else with it

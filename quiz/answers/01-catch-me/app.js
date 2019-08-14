@@ -6,4 +6,4 @@
         top += 50;
         button.style.transform = `translateY(${top}px)`;
     });
-})(document)
+})(document);
