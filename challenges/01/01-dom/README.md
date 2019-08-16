@@ -26,7 +26,7 @@ You can use the JS console in Firefox to check your selectors work if you're hav
 
 *This is not a realistic situation, as you'd generally add the classes straight to the HTML, but we need to learn about Events before we can use it practicallly.*
 
-[Demo](https://htmlpreview.github.io/?https://github.com/develop-me/book-marks/blob/develop/week-04--dom/challenges/01/01-dom/answers/selectors.html)
+[Demo](https://htmlpreview.github.io/?https://github.com/develop-me/week-04--dom/blob/master/challenges/01/01-dom/answers/selectors.html)
 
 ---
 
