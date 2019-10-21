@@ -101,7 +101,7 @@ Rather than appending items to the DOM one by one, we can use a \textbf{Document
     // the list is already on the page, so if we append
     // to it we will cause a redraw
     let list = document.getElementById("list");
-    let animals = ["wombat", "kangaroo", "wombat", "platypus", "koala"];
+    let animals = ["kangaroo", "wombat", "platypus", "koala"];
     let fragment = document.createDocumentFragment();
 
     animals.forEach(animal => {
@@ -158,4 +158,5 @@ You only need to use a document fragment if the item you want to add multiple it
     \item \href{https://developer.mozilla.org/en-US/docs/Web/API/Document/createDocumentFragment}{MDN: Document Fragments}
     \item \href{https://css-tricks.com/now-ever-might-not-need-jquery/}{You Might Not Need jQuery}
     \item \href{https://www.elated.com/articles/jquery-getting-started/}{jQuery: Getting Started}
+    \item \href{https://blog.logrocket.com/the-history-and-legacy-of-jquery/}{The history and legacy of jQuery}
 \end{itemize}

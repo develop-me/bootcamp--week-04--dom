@@ -11,7 +11,7 @@
     // palidrome takes a string and returns whether it is a palindrome
     // reverse the given string, compare it to the original
     // if they're the same, it's a palindrome
-    let palindrome = string => string.split("").reverse().join("") === string;
+    let palindrome = string => Array.from(string).reverse().join("") === string;
 
     // when the button is clicked
     button.addEventListener("click", () => {
