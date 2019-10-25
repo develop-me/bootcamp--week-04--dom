@@ -52,10 +52,10 @@ Create a page including the following HTML code:
 <p>Your favourite search engine:</p>
 
 <div id="links" class="list-group">
+    <a class="list-group-item" href="http://duckduckgo.com">DuckDuckGo</a>
     <a class="list-group-item" href="http://google.com">Google</a>
     <a class="list-group-item" href="http://yahoo.com">Yahoo</a>
     <a class="list-group-item" href="http://bing.com">Bing</a>
-    <a class="list-group-item" href="http://duckduckgo.com">DuckDuckGo</a>
 </div>
 
 <p class="well">You selected: <strong id="output">none selected</strong></p>
