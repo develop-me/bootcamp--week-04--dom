@@ -39,3 +39,21 @@
 - Use state over querying the DOM whenever you can
     - Use variables
     - You know initial values of everything
+
+## Example
+
+- Fix header if it's out of view
+- Normally: inputs, output, event handlers
+    - Input: window scroll position
+    - Output: header styling
+    - Events: window scrolling
+- Break down into parts:
+    - Need to do something on scroll
+    - Need to work with header
+    - Get header height
+    - Check if scroll is beyond height
+- Styling:
+    - position: fixed
+    - width: 100%
+    - z-index: 1
+    - opacity: 0.9?
