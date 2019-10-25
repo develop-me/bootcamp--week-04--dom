@@ -16,7 +16,7 @@
 
             // if it's not in the highlighted array make it highlighted
             if (index === -1) {
-                clicked.style.backgroundColor = "#000";
+                clicked.style.backgroundColor = "#090";
                 // push into the highlighted array to track it
                 highlighted.push(clicked);
             } else {

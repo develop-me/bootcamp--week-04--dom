@@ -24,7 +24,7 @@ Using `todo.html`. When you click the button, the text inside the input should a
 
 ### 04
 
-Using your `border.js` file from yesterday, update the JavaScript so that when the user clicks on the `<div>`, its border colour should alternate between red and black.
+Using your `border.js` file from yesterday, update the JavaScript so that when the user clicks on the `<div>`, its border colour should alternate between red and blue.
 
 [Demo](https://develop-me.github.io/week-04--dom/challenges/03/answers/border/border.html)
 

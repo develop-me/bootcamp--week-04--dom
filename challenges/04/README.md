@@ -28,7 +28,7 @@ Using `paragraphs.html`. When the user clicks on a paragraph it should be given 
 
 ### 04
 
-Using `spans.html`. Use event delegation to efficiently handle click events on the spans. When a `<span>` is clicked, it's background colour should change to black. For bonus points, if it is clicked again, it should change back to white.
+Using `spans.html`. Use event delegation to efficiently handle click events on the spans. When a `<span>` is clicked, it's background colour should change to green. For bonus points, if it is clicked again, it should change back to white.
 
 *Note*: Remember, you should use state variables to track changes, rather than asking the DOM
 
