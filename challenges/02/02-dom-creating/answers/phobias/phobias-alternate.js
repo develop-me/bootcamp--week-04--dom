@@ -11,7 +11,7 @@
         "pteronophobia", // Fear of feathers
         "taphephobia", // Fear of being buried alive
         "apiphobia", // Fear of bees
-    ].sort();
+    ];
 
     // create an object literal that has the structure
     // {
@@ -40,8 +40,9 @@
     let list = d.createElement("ul");
 
     // go over each key in the object literal
+    // sort alphabetically
     // passes in each first letter
-    Object.keys(data).forEach(letter => {
+    Object.keys(data).sort().forEach(letter => {
         // create a new list item for current letter
         let li = d.createElement("li");
         // set the text to an uppercased version of the letter

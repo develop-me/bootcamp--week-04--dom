@@ -17,7 +17,7 @@
 
     // create some variables outside the forEach loop
     // lets us keep track of stuff between iterations
-    let lastLetter, letterListItem, phobiaList;
+    let lastLetter, phobiaList;
 
     // for each phobia
     phobias.forEach(phobia => {
@@ -31,7 +31,7 @@
             // create a list item for the current letter
             // storing it in the variable outside the loop
             // that way we can reuse it on the next iteration
-            letterListItem = d.createElement("li");
+            let letterListItem = d.createElement("li");
             // set the text to the uppercased letter
             letterListItem.textContent = letter.toUpperCase();
             // add to the list
