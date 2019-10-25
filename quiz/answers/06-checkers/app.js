@@ -1,5 +1,5 @@
 (d => {
-    let blocks = Array.from(d.getElementsByClassName("block"));
+    let blocks = Array.from(d.getElementById("checkers").children);
 
     // work out the row from the index
     let row = i => Math.floor(i / 8);
