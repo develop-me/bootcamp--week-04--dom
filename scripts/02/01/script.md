@@ -30,8 +30,8 @@
 - `el.style` property:
    - `el.style.border = "1px solid red"`
    - `el.style.marginTop = "20px"`
+   - **`el.style.transform = "translate(20px, 20px)"`**
    - `el.style.position = "absolute"`
-   - `el.style.transform = "translate(20px, 20px)"`
 - Height/width (include "px"):
     - `el.style.height = "200px"`
     - `el.style.width = "200px"`
