@@ -22,27 +22,27 @@ let left = 40;
 el.style.transform = `translateX(${left}px)`;
 ```
 
-[Demo](https://develop-me.github.io/week-04--dom/quiz/answers/01-catch-me/index.html)
+[Demo](https://develop-me.github.io/bootcamp--week-04--dom/quiz/answers/01-catch-me/index.html)
 
 
 ### 02
 
 Create a page with a list of animals. When you click on one of the animal names, it should be moved to the top of the list. Bonus points for interesting animals.
 
-[Demo](https://develop-me.github.io/week-04--dom/quiz/answers/02-animals/index.html)
+[Demo](https://develop-me.github.io/bootcamp--week-04--dom/quiz/answers/02-animals/index.html)
 
 ### 03
 
 Create a page with an `<input type="number">` and a button on it. When the button is clicked, the total of all previously entered numbers should be displayed.
 
-[Demo](https://develop-me.github.io/week-04--dom/quiz/answers/03-adder/index.html)
+[Demo](https://develop-me.github.io/bootcamp--week-04--dom/quiz/answers/03-adder/index.html)
 
 
 ### 04
 
 Create an `<input type="password" />` on a new page. If the length of the password is less than 10, the background colour of the input should be red. If the length of the password is between 10 and 18 the background colour should be orange. If the length is more than 18 characters it should go green. The background colour should update as the user is typing. Add some text to let the user know how they're doing.
 
-[Demo](https://develop-me.github.io/week-04--dom/quiz/answers/04-password/index.html)
+[Demo](https://develop-me.github.io/bootcamp--week-04--dom/quiz/answers/04-password/index.html)
 
 ### 05
 
@@ -63,14 +63,14 @@ Create a page including the following HTML code:
 
 When a user clicks on one of the links, you should update the `#output` element to say the name of the chosen link. Use event delegation to make it totes efficient.
 
-[Demo](https://develop-me.github.io/week-04--dom/quiz/answers/05-links/index.html)
+[Demo](https://develop-me.github.io/bootcamp--week-04--dom/quiz/answers/05-links/index.html)
 
 
 ### 06
 
 Add a `checkers.js` file so that `resources/checkers.html` turns into a checkers board. Don't edit the HTML file!
 
-[Demo](https://develop-me.github.io/week-04--dom/quiz/answers/06-checkers/index.html)
+[Demo](https://develop-me.github.io/bootcamp--week-04--dom/quiz/answers/06-checkers/index.html)
 
 
 ### 07
@@ -85,7 +85,7 @@ Create a page with a `<div>` on it, that is 200px &times; 200px. Using JavaScrip
 #395967
 ```
 
-[Demo](https://develop-me.github.io/week-04--dom/quiz/answers/07-colours/index.html)
+[Demo](https://develop-me.github.io/bootcamp--week-04--dom/quiz/answers/07-colours/index.html)
 
 
 ### 08
@@ -99,7 +99,7 @@ let number = Math.floor(random * 100); // a number between 0 and 99
 
 Create an HTML page with a `<button>` that says "Roll the Dice!". Whenever it is clicked your page should display two numbers between 1 and 6. If you're feeling fancy and have time to spare, try using [dice.css](https://diafygi.github.io/dice-css/).
 
-[Demo](https://develop-me.github.io/week-04--dom/quiz/answers/08-dice/index.html)
+[Demo](https://develop-me.github.io/bootcamp--week-04--dom/quiz/answers/08-dice/index.html)
 
 
 ### 09
@@ -124,7 +124,7 @@ loop(0);
 
 Use the code above, along with JavaScript, to make the image in `resources/animate.html` bounce horizontally across the screen. Try and get it to move smoothly across the screen at exactly 500 pixels per second.
 
-[Demo](https://develop-me.github.io/week-04--dom/quiz/answers/09-bouncy-cat/index.html)
+[Demo](https://develop-me.github.io/bootcamp--week-04--dom/quiz/answers/09-bouncy-cat/index.html)
 
 ---
 
