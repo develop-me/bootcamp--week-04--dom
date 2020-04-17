@@ -11,6 +11,8 @@
 - Include information about loading events
     > https://javascript.info/onload-ondomcontentloaded
 - Cover basic debugging with breakpoints?
+- Link `.html` files to raw download, so they don't have to copy and paste the code
+- Info on cancel bubble - but only in notes
 
 ## Doing
 

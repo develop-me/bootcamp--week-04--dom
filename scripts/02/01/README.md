@@ -64,3 +64,13 @@
 - `el.dataset.id`
 - `el.dataset.author`
 - Use as a last resort, better to get from API
+
+
+**Challenges:** Use paired programming
+
+[challenges/02/01-dom-manipulation/](../../../challenges/02/01-dom-manipulation/)
+
+- Used throughout the industry, not just for beginners
+- Great way to learn
+- Work on one machine - take turns
+- Don't write anything until you both understand it

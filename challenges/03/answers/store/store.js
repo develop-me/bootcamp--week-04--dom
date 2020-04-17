@@ -1,7 +1,7 @@
 (d => {
     // get the various elements we'll need
-    let text = d.getElementById("store");
-    let add = d.getElementById("add");
+    let text = d.getElementById("input");
+    let add = d.getElementById("store");
     let display = d.getElementById("display");
     let list = d.getElementById("list");
 
@@ -28,7 +28,7 @@
         list.textContent = "";
 
         // for each stored string
-        store.forEach(string => {
+        store.sort().forEach(string => {
             // create a list item
             let li = d.createElement("li");
             // set its text to the current string

@@ -2,6 +2,8 @@
 
 ---
 
+The instructor should have put you into pairs for these challenges. If they've forgotten, please remind them before you get started!
+
 ## Challenges
 
 Create a new `.js` file for each challenge. You may want to put each challenge in a new directory.
