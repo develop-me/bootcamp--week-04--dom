@@ -26,8 +26,12 @@
 
     // when the reset button is clicked
     reset.addEventListener("click", () => {
+        // reset height/width
+        height = originalHeight;
+        width = originalWidth;
+
         // set the image height/width to the original values
-        image.style.height = `${originalHeight}px`;
-        image.style.width = `${originalWidth}px`;
+        image.style.height = `${height}px`;
+        image.style.width = `${width}px`;
     });
 })(document);

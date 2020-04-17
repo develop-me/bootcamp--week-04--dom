@@ -48,7 +48,7 @@ Add JavaScript to `colour-picker.html` so that it works.
 
 ### 08
 
-Using `store.html`. When the "Store" button is pressed, the input field should be cleared and its value stored. When the "Display" button is pressed all previously submitted values should appear as a list underneath (each `<li>` should have a class of `list-group-item`). Nothing should be displayed until the "Display" button is pressed. This should work for any number of text submissions.
+Using `store.html`. When the "Store" button is pressed, the input field should be cleared and its value stored. When the "Display" button is pressed all previously submitted values should appear **in alphabetical order** as a list underneath (each `<li>` should have a class of `list-group-item`). Nothing should be displayed until the "Display" button is pressed. This should work for any number of text submissions.
 
 [Demo](https://develop-me.github.io/bootcamp--week-04--dom/challenges/03/answers/store/store.html)
 
