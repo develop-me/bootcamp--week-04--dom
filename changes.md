@@ -8,8 +8,13 @@
 
 ## To Do
 
+- State example in the lecture
+- More information on State
+- Update challenges to be more state focussed
+    > Some challenges don't involve state or given answers don't use state properly
 - Include information about loading events
     > https://javascript.info/onload-ondomcontentloaded
+- More about using console.log() for seeing what's going on
 - Cover basic debugging with breakpoints?
 - Link `.html` files to raw download, so they don't have to copy and paste the code
 - Info on cancel bubble - but only in notes
