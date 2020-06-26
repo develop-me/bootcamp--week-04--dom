@@ -22,7 +22,7 @@
     - `focus`/`blur`: when a form field gets/loses focus
     - `change`/`input`: fires when a form input changes
     - `submit`: fired on submitting a form
-- MDN has a full list
+- [MDN has a full list](https://developer.mozilla.org/en-US/docs/Web/Events)
 - Some events are element specific (e.g. `submit`, `focus`)
 
 ## Window Events
@@ -39,21 +39,3 @@
 - Use state over querying the DOM whenever you can
     - Use variables
     - You know initial values of everything
-
-## Example
-
-- Fix header if it's out of view
-- Normally: inputs, output, event handlers
-    - Input: window scroll position
-    - Output: header styling
-    - Events: window scrolling
-- Break down into parts:
-    - Need to do something on scroll
-    - Need to work with header
-    - Get header height
-    - Check if scroll is beyond height
-- Styling:
-    - position: fixed
-    - width: 100%
-    - z-index: 1
-    - opacity: 0.9?
