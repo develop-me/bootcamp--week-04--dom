@@ -44,7 +44,7 @@ e.g. When it's done:
 
 Using `alphabet.html`. With JavaScript, create a `<ul>` that contains an `<li>` for each letter of the alphabet.
 
-    **Hint**: every character on the keyboard has a "Character Code" associated with it: e.g. "A" is 65. We can use `String.fromCharCode(65)` to get back the letter "A".
+**Hint**: every character on the keyboard has a "Character Code" associated with it: e.g. "A" is 65. We can use `String.fromCharCode(65)` to get back the letter "A".
 
 [Demo](https://develop-me.github.io/bootcamp--week-04--dom/challenges/02/02-dom-creating/answers/alphabet/alphabet.html)
 
