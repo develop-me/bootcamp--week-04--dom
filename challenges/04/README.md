@@ -65,7 +65,7 @@ Using `mouse.html`. Make it so that green box follows the mouse around the scree
 
 ### 09
 
-Using `konami.html`. If the user types in the Konami code (↑↑↓↓←→←→BA) something funny happens.
+Using `konami.html`. If the user types in the Konami code (`↑↑↓↓←→←→ba`) something funny happens.
 
 **Hint**: You'll need to look at the [documentation for key events](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key)
 

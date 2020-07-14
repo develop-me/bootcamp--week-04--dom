@@ -1,6 +1,6 @@
 (d => {
     // get the main
-    let main = d.getElementById("s");
+    let main = d.getElementById("pixels");
 
     // keep track of which pixels are highlighted
     let highlighted = [];

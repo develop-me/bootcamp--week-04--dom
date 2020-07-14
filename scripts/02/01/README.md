@@ -8,8 +8,6 @@
     - Height in px (including border): `el.offsetWidth`
     - Position relative to page: `el.getBoundingClientRect()`
     - Just text as string: `el.textContent`
-    - Style properties: `el.style.backgroundColor`
-        - **Always a string**
 - Careful with height/width if not visible
 - Show storing in a variable for later use with `height` - `+ "px"`
 
@@ -25,12 +23,24 @@
     - `document.body.offsetWidth`
 - `window` is the global object in the Browser
 
-## Manipulating Elements
+## CSS Object Model
 - CSS Object Model
 - `el.style` property:
-   - `el.style.border = "1px solid red"`
-   - `el.style.marginTop = "20px"`
-   - **`el.style.transform = "translate(20px, 20px)"`**
+    - `el.style.border = "1px solid red"`
+    - `el.style.marginTop = "20px"`
+    - **`el.style.transform = "translate(20px, 20px)"`**
+
+        ```js
+        let cards = d.getElementById("cards");
+
+        let loop = t => {
+            cards.style.transform = `translateY(${t / 10}px)`;
+            requestAnimationFrame(loop);
+        };
+
+        requestAnimationFrame(loop);
+        ```
+
    - `el.style.position = "absolute"`
 - Height/width (include "px"):
     - `el.style.height = "200px"`

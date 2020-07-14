@@ -24,7 +24,7 @@ Using `todo.html`. When you click the button, the text inside the input should a
 
 ### 04
 
-Using your `border.js` file from yesterday, update the JavaScript so that when the user clicks on the `<div>`, its border colour should alternate between red and blue.
+Using your `border.js` file from yesterday, update the JavaScript so that when the user clicks on the `<div>`, its border colour should alternate between red and blue. **You can assume that the border is blue when the page first loads - you don't need to check with the DOM**
 
 [Demo](https://develop-me.github.io/bootcamp--week-04--dom/challenges/03/answers/border/border.html)
 
@@ -77,5 +77,6 @@ Using `calculator.html`. When you click one of the buttons it should do the corr
 ### 12
 
 Using `items.html`. Using *just* JavaScript, make it so that if the `<main>` width is less than 400px wide the grid is one item wide, less than 600px two items wide, less than 800px three items wide, etc. It should update when the window is resized and work for any width screen.
+
 
 [Demo](https://develop-me.github.io/bootcamp--week-04--dom/challenges/03/answers/items/items.html)
