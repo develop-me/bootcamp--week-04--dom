@@ -1,6 +1,6 @@
 # The DOM
 
-## Challenge
+## Exercises
 
 ### 01
 
@@ -26,7 +26,7 @@ You can use the JS console in Firefox to check your selectors work if you're hav
 
 *This is not a realistic situation, as you'd generally add the classes straight to the HTML, but we need to learn about Events before we can use it practicallly.*
 
-[Demo](https://develop-me.github.io/bootcamp--week-04--dom/challenges/01/01-dom/answers/selectors.html)
+[Demo](https://develop-me.github.io/bootcamp--week-04--dom/exercises/01-dom/answers/selectors.html)
 
 ---
 

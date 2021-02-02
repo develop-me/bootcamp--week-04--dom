@@ -1,17 +1,17 @@
-## Challenges
+## Exercises
 
-- More easy challenges for first day of DOM stuff
+- More easy exercises for first day of DOM stuff
     > Particularly collections/traversing - the table row one is too much to start with
-- More easy challenges for second day of DOM stuff
-- Remove kitten image challenge until load events are covered
+- More easy exercises for second day of DOM stuff
+- Remove kitten image exercise until load events are covered
 - Easier quiz questions?
 
 ## To Do
 
 - State example in the lecture
 - More information on State
-- Update challenges to be more state focussed
-    > Some challenges don't involve state or given answers don't use state properly
+- Update exercises to be more state focussed
+    > Some exercises don't involve state or given answers don't use state properly
 - Include information about loading events
     > https://javascript.info/onload-ondomcontentloaded
 - More about using console.log() for seeing what's going on
@@ -48,14 +48,14 @@
 - Use translate instead of `top` and `left` for positioning
 - Update answers to use translate instead of top/left
 - Update answers to use append/prepend/etc.
-- Move Calculator challenge to later in day 4 challenges
+- Move Calculator exercise to later in day 4 exercises
 - Use HTMLPreview for demos
 - `classList.add()` doesn't return anything useful
-    * [x] In day 1 morning challenge 2
+    * [x] In day 1 morning exercise 2
     * [x] In notes
     * [x] In script
 - Use `defer` instead of script at bottom of page
     * [x] Update notes
-    * [x] Update challenge answers
+    * [x] Update exercise answers
     * [x] Update quiz answers
 - Better quiz answers organisation
