@@ -76,9 +76,9 @@
 - Use as a last resort, better to get from API
 
 
-**Challenges:** Use paired programming
+**Exercises:** Use paired programming
 
-[challenges/02/01-dom-manipulation/](../../../challenges/02/01-dom-manipulation/)
+[exercises/02/01-dom-manipulation/](../../../exercises/02/01-dom-manipulation/)
 
 - Used throughout the industry, not just for beginners
 - Great way to learn

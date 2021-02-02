@@ -1,6 +1,6 @@
 # Collections
 
-## Challenges
+## Exercises
 
 **Compare your result with the demo**.
 
@@ -16,17 +16,17 @@ In your existing `selectors.js`:
 
     **Hint**: remember that `document.getElementsByClassName` returns a collection!
 
-[Demo](https://develop-me.github.io/bootcamp--week-04--dom/challenges/01/02-collections-traversing/answers/selectors/selectors.html)
+[Demo](https://develop-me.github.io/bootcamp--week-04--dom/exercises/01/02-collections-traversing/answers/selectors/selectors.html)
 
 ---
 
-You should create a new `.js` file for each of the challenges below. It might be a good idea to have one directory per challenge.
+You should create a new `.js` file for each of the exercises below. It might be a good idea to have one directory per exercise.
 
 ### 02
 
 Using JavaScript, add a class of `list-group-item` to each item in the list in `list.html`.
 
-[Demo](https://develop-me.github.io/bootcamp--week-04--dom/challenges/01/02-collections-traversing/answers/list/list.html)
+[Demo](https://develop-me.github.io/bootcamp--week-04--dom/exercises/01/02-collections-traversing/answers/list/list.html)
 
 ### 03
 
@@ -34,7 +34,7 @@ Using JavaScript, add a class of `alternate` to every other row in the table in 
 
 **Hint**: remember that the array iterator methods pass in the current index as an argument
 
-[Demo](https://develop-me.github.io/bootcamp--week-04--dom/challenges/01/02-collections-traversing/answers/table/table.html)
+[Demo](https://develop-me.github.io/bootcamp--week-04--dom/exercises/01/02-collections-traversing/answers/table/table.html)
 
 
 ### 04
@@ -43,7 +43,7 @@ Use JavaScript to add a class of `redacted` to every paragraph that contains the
 
 *Hint*: if you get the `.textContent` property of an element you'll get back its text as a string. You can search a string to see if it contains another string by using the string `.search("find this")` method - it will return `-1` if it **isn't** found
 
-[Demo](https://develop-me.github.io/bootcamp--week-04--dom/challenges/01/02-collections-traversing/answers/redacted/redacted.html)
+[Demo](https://develop-me.github.io/bootcamp--week-04--dom/exercises/01/02-collections-traversing/answers/redacted/redacted.html)
 
 ---
 
@@ -69,7 +69,7 @@ Math.floor(2.3); // 2
 Math.floor(2.7); // 2
 ```
 
-[Demo](https://develop-me.github.io/bootcamp--week-04--dom/challenges/01/02-collections-traversing/answers/items/items.html)
+[Demo](https://develop-me.github.io/bootcamp--week-04--dom/exercises/01/02-collections-traversing/answers/items/items.html)
 
 ### 06
 
