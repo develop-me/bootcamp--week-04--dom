@@ -27,6 +27,7 @@
 
 ## Window Events
 - `window.addEventListener("scroll", fn)`
+    - e.g. https://www.nytimes.com/interactive/2020/08/10/nyregion/nyc-subway-coronavirus.html
 - `window.addEventListener("resize", fn)`
 - How could you detect the direction a user is scrolling in?
 
