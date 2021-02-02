@@ -78,7 +78,7 @@
 
 **Exercises:** Use paired programming
 
-[exercises/02/01-dom-manipulation/](../../../exercises/02/01-dom-manipulation/)
+[exercises/03-dom-manipulation/](../../../exercises/03-dom-manipulation/)
 
 - Used throughout the industry, not just for beginners
 - Great way to learn

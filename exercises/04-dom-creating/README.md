@@ -12,7 +12,7 @@ Create a new `.js` file for each exercise. You may want to put each exercise in 
 
 Using `rhubarb.html`. With JavaScript, add 100 paragraphs to the `<main>` that all say "Rhubarb".
 
-[Demo](https://develop-me.github.io/bootcamp--week-04--dom/exercises/02/02-dom-creating/answers/rhubarb/rhubarb.html)
+[Demo](https://develop-me.github.io/bootcamp--week-04--dom/exercises/04-dom-creating/answers/rhubarb/rhubarb.html)
 
 ### 02
 
@@ -34,7 +34,7 @@ e.g. When it's done:
 
 **Tangentially Related**: [New Paint Colours Invented by Neural Network](http://aiweirdness.com/post/160776374467/new-paint-colors-invented-by-neural-network)
 
-[Demo](https://develop-me.github.io/bootcamp--week-04--dom/exercises/02/02-dom-creating/answers/colours/colours.html)
+[Demo](https://develop-me.github.io/bootcamp--week-04--dom/exercises/04-dom-creating/answers/colours/colours.html)
 
 ---
 
@@ -46,7 +46,7 @@ Using `alphabet.html`. With JavaScript, create a `<ul>` that contains an `<li>` 
 
 **Hint**: every character on the keyboard has a "Character Code" associated with it: e.g. "A" is 65. We can use `String.fromCharCode(65)` to get back the letter "A".
 
-[Demo](https://develop-me.github.io/bootcamp--week-04--dom/exercises/02/02-dom-creating/answers/alphabet/alphabet.html)
+[Demo](https://develop-me.github.io/bootcamp--week-04--dom/exercises/04-dom-creating/answers/alphabet/alphabet.html)
 
 ### 04
 
@@ -67,13 +67,13 @@ let strings = [
 ];
 ```
 
-[Demo](https://develop-me.github.io/bootcamp--week-04--dom/exercises/02/02-dom-creating/answers/phobias/phobias.html)
+[Demo](https://develop-me.github.io/bootcamp--week-04--dom/exercises/04-dom-creating/answers/phobias/phobias.html)
 
 ### 05
 
 Using `grid.html`. With JavaScript, create a 64×64 grid of `<span>` elements, each one 10px square. The top left corner should have background `rgb(0,0,127)` and the bottom right should have background `rgb(255,255,127)`. The `r` value should go up by 4 with each column and the `g` value should go up by 4 with each row. The `b` value should be fixed at `127`.
 
-[Demo](https://develop-me.github.io/bootcamp--week-04--dom/exercises/02/02-dom-creating/answers/grid/grid.html)
+[Demo](https://develop-me.github.io/bootcamp--week-04--dom/exercises/04-dom-creating/answers/grid/grid.html)
 
 ---
 
@@ -83,4 +83,4 @@ Using `grid.html`. With JavaScript, create a 64×64 grid of `<span>` elements, e
 
 Using `canvas.html`. Try and recreate the colour grid above, but [using `<canvas>`](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D), only make the grid 256×256 and go up in value by 1 instead of 4.
 
-[Demo](https://develop-me.github.io/bootcamp--week-04--dom/exercises/02/02-dom-creating/answers/canvas/canvas.html)
+[Demo](https://develop-me.github.io/bootcamp--week-04--dom/exercises/04-dom-creating/answers/canvas/canvas.html)
