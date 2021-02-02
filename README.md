@@ -5,7 +5,7 @@
     - [Collections & Traversing the DOM](https://github.com/develop-me/bootcamp--week-04--dom/blob/main/scripts/02-collections-traversing/README.md)
 - Day 2: Manipulating the DOM
     - [Querying & Manipulating Elements](https://github.com/develop-me/bootcamp--week-04--dom/blob/main/scripts/03-dom-manipulation/README.md)
-    - [Creating, Moving & Removing Elements](https://github.com/develop-me/bootcamp--week-04--dom/blob/main/scripts/04-dom-creation/README.md)
+    - [Creating, Moving & Removing Elements](https://github.com/develop-me/bootcamp--week-04--dom/blob/main/scripts/04-dom-creating/README.md)
 - Day 3: Event Driven Programming
     - [Events & State](https://github.com/develop-me/bootcamp--week-04--dom/blob/main/scripts/05-events/README.md)
 - Day 4: The Event Object
